@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/bayaproject/static/css/main.86faca32.css",
+    "main.js": "/bayaproject/static/js/main.c4812140.js",
+    "static/js/787.d3befce1.chunk.js": "/bayaproject/static/js/787.d3befce1.chunk.js",
+    "index.html": "/bayaproject/index.html",
+    "main.86faca32.css.map": "/bayaproject/static/css/main.86faca32.css.map",
+    "main.c4812140.js.map": "/bayaproject/static/js/main.c4812140.js.map",
+    "787.d3befce1.chunk.js.map": "/bayaproject/static/js/787.d3befce1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.86faca32.css",
+    "static/js/main.c4812140.js"
+  ]
+}
