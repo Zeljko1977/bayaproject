@@ -2,9 +2,10 @@ import './App.css';
 import {useRef, useEffect, useState} from 'react';
 import { WebRTCClient } from "@arcware/webrtc-plugin"
 import ReactTextTransition, { presets } from "react-text-transition";
-import { Spin } from "react-loading-io";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import bayaLogo from './logo_White.png'
 import bayaImg from './monogram_Colour.png'
+import * as Icon from 'react-bootstrap-icons';
 
 const descriptors = {
   color: {
@@ -67,6 +68,8 @@ function App() {
   const [videoDelay, setVideoDelay] = useState(true)
   const [paragraphIndex, setParagraphIndex] = useState(0)
   let webrtcClientInit = false;
+
+  const handle = useFullScreenHandle();
 
   const responseCallback = (message) => {
     console.log('response')
@@ -138,12 +141,18 @@ function App() {
 
         </div>
           
-        }
+        }<FullScreen handle={handle}>
         <div ref={sizeContainerRef}>
         <div ref={containerRef} style={{ zIndex: 1}}>
           <video ref={videoRef} />
         </div>
-      </div> 
+      </div>
+      
+      
+      {!handle.active &&<Icon.Fullscreen size={35} color={'white'} onClick={handle.enter} className='full-screen-button'/>}
+      {handle.active &&<Icon.FullscreenExit size={35} color={'white'} onClick={handle.exit} className='full-screen-button'/>}
+      </FullScreen>
+      
     </div>
   );
 }
