@@ -90,12 +90,12 @@ function App() {
           return index+1;
         }
         }),
-      500 // every 3 seconds */
+      700 // every 3 seconds */
     );
    // baya animation "share-76-42f3-46e8-bb33-8911993449fb"
     const args = {
       address: "wss://signalling-client.ragnarok.arcware.cloud/",
-      packageId: "ff41fd0c-cac9-4e4c-abe5-3ada402f57cc",
+      packageId: "share-76-42f3-46e8-bb33-8911993449fb",
       settings: {},
       sizeContainer: sizeContainerRef.current,
       container: containerRef.current,
