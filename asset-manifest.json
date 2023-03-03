@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/bayaproject/static/css/main.86faca32.css",
-    "main.js": "/bayaproject/static/js/main.c4812140.js",
+    "main.css": "/bayaproject/static/css/main.84b15584.css",
+    "main.js": "/bayaproject/static/js/main.140f101f.js",
     "static/js/787.d3befce1.chunk.js": "/bayaproject/static/js/787.d3befce1.chunk.js",
+    "static/media/monogram_Colour.png": "/bayaproject/static/media/monogram_Colour.04e5d890b69cc15f9a88.png",
+    "static/media/logo_White.png": "/bayaproject/static/media/logo_White.56609764825c4123d19b.png",
     "index.html": "/bayaproject/index.html",
-    "main.86faca32.css.map": "/bayaproject/static/css/main.86faca32.css.map",
-    "main.c4812140.js.map": "/bayaproject/static/js/main.c4812140.js.map",
+    "main.84b15584.css.map": "/bayaproject/static/css/main.84b15584.css.map",
+    "main.140f101f.js.map": "/bayaproject/static/js/main.140f101f.js.map",
     "787.d3befce1.chunk.js.map": "/bayaproject/static/js/787.d3befce1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.86faca32.css",
-    "static/js/main.c4812140.js"
+    "static/css/main.84b15584.css",
+    "static/js/main.140f101f.js"
   ]
 }
