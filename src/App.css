@@ -50,8 +50,14 @@
   color: white;
   pointer-events: none;
   /* animation: fadeInPage ease 2s;
- animation-iteration-count: 3; */
- animation: fadeInPage 2s ease-in-out infinite;
+ animation-iteration-count: 3; 
+ animation: fadeInPage 2s ease-in-out infinite;*/
+}
+.content-animation {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInPage 2s ease-in-out infinite;
 }
 
 @keyframes fadeInPage {
@@ -81,4 +87,28 @@ video {
 }
 .img2 {
   width: 300px;
+}
+
+section {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+.text-transition {
+  font-size: 22px;
+}
+
+.inline {
+  font-size: 22px;
+}
+
+.big {
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+.loading-content {
+  display: flex;
+  flex-direction: column;
 }
