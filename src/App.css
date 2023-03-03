@@ -2,6 +2,9 @@
   text-align: center;
   height: 100%;
   background: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #root {
@@ -78,7 +81,7 @@ video {
 .logos {
   width: 600px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -119,4 +122,20 @@ section {
   z-index: 10;
   cursor: pointer;
    
+}
+@media screen and (max-width: 600px) {
+  .img1 {
+    transform: scale(0.8);
+    
+  }
+  .img2 {
+    transform: scale(0.8);
+  }
+  .content-animation h1 {
+    font-size: 60px;
+  }
+  .logos {
+    display: flex;
+    flex-direction: column;
+  }
 }

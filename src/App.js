@@ -124,21 +124,20 @@ function App() {
     <div className="App">
       {isLoading &&
         <div className="content">
-          <div className='content-animation'>
-            <h1>Welcome to</h1>
-            <div className='logos'>
-              <img className='img1' src={bayaImg}/>
-              <img className='img2' src={bayaLogo}/>
+            <div className='content-animation'>
+              <h1>Welcome to</h1>
+              <div className='logos'>
+                <img className='img1' src={bayaImg}/>
+                <img className='img2' src={bayaLogo}/>
+              </div>
             </div>
-          </div>
             <section>
             <ReactTextTransition
               children={paragraphs[paragraphIndex % paragraphs.length]}
               springConfig={presets.gentle}
               className="big"
             />
-          </section>
-
+            </section>
         </div>
           
         }<FullScreen handle={handle}>
