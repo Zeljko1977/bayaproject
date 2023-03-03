@@ -1,6 +1,9 @@
 import './App.css';
 import {useRef, useEffect, useState} from 'react';
 import { WebRTCClient } from "@arcware/webrtc-plugin"
+import { Spin } from "react-loading-io";
+import bayaLogo from './logo_White.png'
+import bayaImg from './monogram_Colour.png'
 
 const descriptors = {
   color: {
@@ -53,13 +56,17 @@ function App() {
   const videoRef = useRef(null);
   const [webrtcClient, setWebrtcClient] = useState();
   const [responses, setResponses] = useState([]);
+  const [isLoading, setIsLoading] = useState(true)
   let webrtcClientInit = false;
 
   const responseCallback = (message) => {
+    console.log('response')
     setResponses([message, ...responses])
   }
 
   const videoInitialized = () => {
+    console.log("jhjhjhjhjhjjhjhj")
+    setIsLoading(false)
     if (webrtcClient) {
       webrtcClient.emitUIInteraction(descriptors.color.black);
     }
@@ -68,13 +75,14 @@ function App() {
   useEffect(() => {
     const args = {
       address: "wss://signalling-client.ragnarok.arcware.cloud/",
-      packageId: "ff41fd0c-cac9-4e4c-abe5-3ada402f57cc",
+      packageId: "share-76-42f3-46e8-bb33-8911993449fb",
       settings: {},
       sizeContainer: sizeContainerRef.current,
       container: containerRef.current,
       videoRef: videoRef.current,
-      playOverlay: true,
-      loader: () => {'Loading'},
+      forceVideoToFitContainer: true,
+      playOverlay: false,
+      loader: () => {},
       applicationResponse: responseCallback,
       videoInitializeCallback: videoInitialized
     };
@@ -88,15 +96,16 @@ function App() {
 
   return (
     <div className="App">
+      {isLoading && <div className="content">
+            <h1>Welcome to</h1>
+            <div className='logos'>
+              <img className='img1' src={bayaImg}/>
+              <img className='img2' src={bayaLogo}/>
+            </div>
+          </div>}
       <div ref={sizeContainerRef}>
-        <div ref={containerRef} style={{ zIndex: 1 }}>
+        <div ref={containerRef} style={{ zIndex: 1}}>
           <video ref={videoRef} />
-          <div className="content">
-            <h1>Welcome</h1>
-            <p>To my site.</p>
-          </div>
-          {webrtcClient != null && <AppUI emitUIInteraction={webrtcClient.emitUIInteraction} />}
-          <Responses responses={responses} />
         </div>
       </div>
     </div>

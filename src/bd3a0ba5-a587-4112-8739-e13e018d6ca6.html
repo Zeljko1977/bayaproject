@@ -1,0 +1,525 @@
+
+
+
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".preloader").fadeOut();
+        })
+
+    </script>
+
+    <style>
+    
+    
+    		/* General Styles 
+		------------------------------
+
+		body {
+			
+            margin: 0;
+            height:  100vh;
+            background: #eee;
+            display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			font-family: 'Roboto Mono', monospace;
+            font-weight: 400;
+      		line-height: 1.5;
+			text-align: center;    	
+		}
+
+		h1 {
+			font-weight: 500;
+			font-size:  1.6em;
+	    } 
+
+	    h2 {
+			font-weight: 400;
+			font-size:  1.125em;
+			width:  80%;
+			max-width:  400px;
+			margin-bottom: 1.5em;
+	    }
+
+	    a {
+	    	color:  #aaa;
+	    	transition: opacity .3s;
+	    }
+
+	    a:hover {
+	    	opacity: .5;
+	    }*/
+
+
+		
+		/* Fullscreen Button 
+		------------------------------*/
+
+		[fullscreen] #fullscreen-button{
+
+		background-image: url(https://bayadynamics.com/wp-content/uploads/2023/02/f2.png) !important;
+		background-position: center !important;
+		background-repeat: no-repeat !important;
+		background-size: contain !important;}
+
+		#fullscreen-button {
+			position: absolute;
+			top:  15px;
+			right:  15px;
+			background-image: url(https://bayadynamics.com/wp-content/uploads/2023/02/f1.png) !important;
+		    background-position: center !important;
+		    background-repeat: no-repeat !important;
+			background-size: contain !important;
+			border:  0;
+			width:  50px;
+			height:  50px;
+			border-radius: 50%;
+			box-sizing: border-box;
+			transition:  transform .1s;
+			font-size: 0;
+			opacity: 0.66;
+			pointer-events: auto;
+			cursor:  pointer;
+			outline: 0;
+		}
+
+		#fullscreen-button:hover {
+			transform: scale(1);
+		}
+
+		#fullscreen-button span {
+			width:  4px;
+			height:  4px;
+			border-top:  0; /* color */
+			border-left:  0; /* color */
+			position: absolute;
+			outline: 1px solid transparent;
+			-webkit-backface-visibility: hidden;
+			transform: translateZ(0);
+			will-change: transform;
+			-webkit-perspective: 1000;
+			transition:  .1s;
+			transition-delay: .75s;
+		}
+
+		#fullscreen-button span:nth-child(1) {
+			top: 11px;
+			left: 11px;
+		}
+
+		#fullscreen-button span:nth-child(2) {
+			top: 11px;
+			left: 22px;
+			transform: rotate(90deg);
+		}
+
+		#fullscreen-button span:nth-child(3) {
+			top: 22px;
+			left: 11px;
+			transform: rotate(-90deg);
+		}
+
+		#fullscreen-button span:nth-child(4) {
+			top: 22px;
+			left: 22px;
+			transform: rotate(-180deg);
+		}
+
+
+		/* Fullscreen True
+		------------------------------*/
+
+		[fullscreen] #fullscreen-button span:nth-child(1) {
+			top: 22px;
+			left: 22px;
+		}
+
+		[fullscreen] #fullscreen-button span:nth-child(2) {
+			top: 22px;
+			left: 11px;
+		}
+
+		[fullscreen] #fullscreen-button span:nth-child(3) {
+			top: 11px;
+			left: 22px;
+		}
+
+		[fullscreen] #fullscreen-button span:nth-child(4) {
+			top: 11px;
+			left: 11px;
+		}
+
+
+
+		/* Dark Style
+		------------------------------*/
+
+		[light-mode=dark] {
+			background: #111;
+			color:  #fff;
+		}
+
+		[light-mode=dark] #fullscreen-button {
+			    background: #66656654;
+				
+		}
+
+        .wrapperanimate {
+            width: 200px;
+            height: 60px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .circle {
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            border-radius: 50%;
+            background-color: #fff;
+            left: 15%;
+            transform-origin: 50%;
+            animation: circle .5s alternate infinite ease;
+			margin-top: 40%;
+        }
+
+        @keyframes circle {
+            0% {
+                top: 60px;
+                height: 5px;
+                border-radius: 50px 50px 25px 25px;
+                transform: scaleX(1.7);
+            }
+
+            40% {
+                height: 10px;
+                border-radius: 50%;
+                transform: scaleX(1);
+            }
+
+            100% {
+                top: 0%;
+            }
+        }
+
+        .circle:nth-child(2) {
+            left: 45%;
+            animation-delay: .2s;
+        }
+
+        .circle:nth-child(3) {
+            left: auto;
+            right: 15%;
+            animation-delay: .3s;
+        }
+
+        .shadow {
+            width: 20px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: none;
+            position: absolute;
+            top: 62px;
+            transform-origin: 50%;
+            z-index: -1;
+            left: 15%;
+            filter: blur(1px);
+            animation: shadow .5s alternate infinite ease;
+        }
+
+        @keyframes shadow {
+            0% {
+                transform: scaleX(1.5);
+            }
+
+            40% {
+                transform: scaleX(1);
+                opacity: .7;
+            }
+
+            100% {
+                transform: scaleX(.2);
+                opacity: .4;
+            }
+        }
+
+        .shadow:nth-child(4) {
+            left: 45%;
+            animation-delay: .2s
+        }
+
+        .shadow:nth-child(5) {
+            left: auto;
+            right: 15%;
+            animation-delay: .3s;
+        }
+
+        .wrapperanimate span {
+            position: absolute;
+            top: -80px;
+
+            font-size: 20px;
+            letter-spacing: 12px;
+            color: #fff;
+            left: 31%;
+        }
+
+        .select-block {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            z-index: 10;
+            width: 70px;
+            height: 25px;
+            font-size: 16px;
+        }
+
+        .responses-block {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            z-index: 10;
+            color: white;
+            font-size: 18px;
+
+        }
+
+        #responses-list {
+            overflow: hidden;
+            max-height: 400px;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        #responses-list p {
+            margin: 0;
+        }
+    </style>
+    <script type="module">
+        import { WebRTCClient } from "https://unpkg.com/@arcware/webrtc-plugin@latest/index_new.umd.js";
+        let emitUIInteraction;
+
+        window.addEventListener("load", function () {
+            const args = {
+                address: "wss://signalling-client.ragnarok.arcware.cloud/",
+                packageId: "share-76-42f3-46e8-bb33-8911993449fb",
+                settings: {},
+                sizeContainer: "size-container",
+                autoplay: {
+                    video: true,
+                    audio: true
+                },
+                playOverlay: false,
+                videoInitializeCallback: appendUI,
+                applicationResponse: handleResponse
+            };
+
+            this.webrtc = new WebRTCClient(args);
+            emitUIInteraction = this.webrtc.emitUIInteraction;
+        });
+
+
+        /*
+        Instead of supplying the image URL, we convert the file's content to a Blob and
+        then we create DOMString from it using the createObjectURL method.]
+
+        This method will download any file from a URL reagardless of the origin server.
+
+        This method only will work if the AWS S3 bucket has CORS policy otherwise it won't.
+
+        CORS is a mechanism that allows a server to use a combination of HTTP headers to indicate from which domains, 
+        other than its own, it receives requests.
+        By default servers only take requests made from applications hosted on the same domain.
+        All S3 buckets are hosted on the https://amazonaws.com domain, which is different from where we host our client applications, 
+        so we have to set up CORS.
+        */
+
+        async function downloadUsingFetch(downloadlink,date) {
+            
+            const image = await fetch(downloadlink);
+            const imageBlog = await image.blob();
+            const imageURL = URL.createObjectURL(imageBlog);
+
+
+            const anchor = document.createElement("a");
+            anchor.href = imageURL;
+            anchor.download = "" + date; 
+
+
+            document.body.appendChild(anchor);
+            anchor.click();
+            document.body.removeChild(anchor);
+            URL.revokeObjectURL(imageURL);
+        }
+
+        // UI
+        function appendUI() {
+
+            const container = document.querySelector("#size-container > div:first-of-type");
+
+
+            // Responses
+            const responsesElement = document.createElement('div');
+            responsesElement.classList.add('responses-block');
+
+            const responsesElementHeader = document.createElement('h4');
+            responsesElementHeader.innerText = "";
+
+            const responsesElementList = document.createElement('div');
+            responsesElementList.setAttribute('id', 'responses-list');
+
+            responsesElement.append(responsesElementHeader);
+            responsesElement.append(responsesElementList);
+            container.append(responsesElement);
+        }
+
+
+        function handleResponse(message) {
+            console.log("response")
+            
+            const obj = JSON.parse(message);
+            const task = obj.Task;
+
+            switch (task) {
+                case "Download":
+                    {
+                        switch (obj.ContentType) {
+                            case "image/png":
+
+                                const date = obj.Date;
+                                downloadUsingFetch(obj.URL, "capture-" + date);
+                                break;
+
+                            case "doc/pdf":
+
+                                const URL = "https://baya-screenshots-bucket.s3.eu-west-2.amazonaws.com/BD_Introduction_Sheet_202208A.pdf";
+                                downloadUsingFetch(URL, "BD Introduction Sheet");
+                                break;
+
+                            default:
+
+                                break;
+                        }
+
+                        break;
+                    }
+                case "Open":
+                    {
+                        window.open(obj.URL);
+                        break;
+                    }
+            }
+        }
+
+    </script>
+</head>
+
+<body style="background: #000; margin: 0px" light-mode="dark">
+
+    <div class="wrapperanimate">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="shadow"></div>
+        <div class="shadow"></div>
+        <div class="shadow"></div>
+        <span><img src="https://bayadynamics.com/wp-content/uploads/2022/10/bdfvc.png"
+                style="width: 75px;height: 75px;"></span>
+    </div>
+    <div id="size-container"></div>
+<script>
+
+
+	// Fullscreen button
+
+    if (document.fullscreenEnabled || document.webkitFullscreenEnabled || 
+	  	document.msFullscreenEnabled ) {
+		create_fullscreen_button();
+	}
+
+    function create_fullscreen_button() {
+
+        let fullscreen_button = document.createElement("button");
+        fullscreen_button.setAttribute('id','fullscreen-button');
+		fullscreen_button.addEventListener("click", mrScreenClick);
+        fullscreen_button.addEventListener("click", toggle_fullscreen);
+        
+        fullscreen_button.innerHTML  = `
+            <span></span>
+        `;
+
+        document.body.appendChild(fullscreen_button);
+
+    }
+function mrScreenClick() {         
+  var mr = document.getElementById('streamingVideoContainer');
+	mr.style.maxHeight = "100%";
+}  
+
+    function toggle_fullscreen() {
+
+		if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement) { 
+
+			if (document.documentElement.requestFullscreen) {
+			    document.documentElement.requestFullscreen()
+			} else if (document.documentElement.mozRequestFullScreen) {
+			    document.documentElement.mozRequestFullScreen()
+			} else if (document.documentElement.webkitRequestFullscreen) {
+			    document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT)
+			}
+
+		document.body.setAttribute("fullscreen","") 
+
+		} else {
+
+			if (document.cancelFullScreen) {
+			    document.cancelFullScreen()
+			} else if (document.mozCancelFullScreen) {
+			    document.mozCancelFullScreen()
+			} else if (document.webkitCancelFullScreen) {
+			    document.webkitCancelFullScreen()
+			}
+
+			document.body.removeAttribute("fullscreen") 
+
+		}
+		
+	}
+
+	function check_fullscreen() {
+
+        // Because users can exit & enter fullscreen by other methods
+
+        if (document.fullscreenElement || document.webkitIsFullScreen || document.mozFullScreen) { 
+            document.body.setAttribute("fullscreen","") 
+        }
+
+        else  { 
+            document.body.removeAttribute("fullscreen") 
+        }
+    }
+
+    setInterval(function(){ check_fullscreen();}, 1000); 
+
+
+
+</script>
+
+
+</body>
+
+</html>
